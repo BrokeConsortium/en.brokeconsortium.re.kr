@@ -1,6 +1,8 @@
+<!-- _includes/header.html -->
 <header class="fontaine-header">
   <!-- Water background effect -->
   <div class="water-background"></div>
+  <div class="water-bubbles" id="bubbles"></div>
   
   <div class="header-container">
     <!-- Logo + Title with Fontaine elegance -->
@@ -15,34 +17,90 @@
       </div>
     </div>
 
-    <!-- Fedora-like navigation with dropdowns -->
+    <!-- Fedora-like navigation with dropdown panels -->
     <nav class="site-nav">
       <ul>
         <li class="nav-item">
           <a href="{{ "/" | relative_url }}"><span class="nav-icon">🏠</span>Home</a>
         </li>
-        <li class="nav-item dropdown">
+        <li class="nav-item">
           <a href="{{ "/research/" | relative_url }}"><span class="nav-icon">🔬</span>Research <span class="dropdown-arrow">▼</span></a>
-          <div class="dropdown-content">
-            <a href="{{ "/research/hydro-mathematics/" | relative_url }}">Hydro-Mathematics</a>
-            <a href="{{ "/research/fontaine-laws/" | relative_url }}">Fontaine's Laws</a>
-            <a href="{{ "/research/energy-studies/" | relative_url }}">Energy Studies</a>
+          <div class="dropdown-panel">
+            <h3>Research Divisions</h3>
+            <div class="panel-content">
+              <div class="panel-section">
+                <h4>Hydro-Mathematics</h4>
+                <ul class="panel-links">
+                  <li><a href="{{ "/research/fluid-dynamics/" | relative_url }}">Fluid Dynamics</a></li>
+                  <li><a href="{{ "/research/wave-theory/" | relative_url }}">Wave Theory</a></li>
+                  <li><a href="{{ "/research/aquatic-algorithms/" | relative_url }}">Aquatic Algorithms</a></li>
+                </ul>
+              </div>
+              <div class="panel-section">
+                <h4>Energy Studies</h4>
+                <ul class="panel-links">
+                  <li><a href="{{ "/research/hydro-power/" | relative_url }}">Hydro Power</a></li>
+                  <li><a href="{{ "/research/tidal-energy/" | relative_url }}">Tidal Energy</a></li>
+                  <li><a href="{{ "/research/current-optimization/" | relative_url }}">Current Optimization</a></li>
+                </ul>
+              </div>
+              <div class="panel-section">
+                <h4>Fontaine's Laws</h4>
+                <ul class="panel-links">
+                  <li><a href="{{ "/research/aquatic-principles/" | relative_url }}">Aquatic Principles</a></li>
+                  <li><a href="{{ "/research/mathematical-proofs/" | relative_url }}">Mathematical Proofs</a></li>
+                  <li><a href="{{ "/research/historical-context/" | relative_url }}">Historical Context</a></li>
+                </ul>
+              </div>
+            </div>
           </div>
         </li>
-        <li class="nav-item dropdown">
+        <li class="nav-item">
           <a href="{{ "/publications/" | relative_url }}"><span class="nav-icon">📚</span>Publications <span class="dropdown-arrow">▼</span></a>
-          <div class="dropdown-content">
-            <a href="{{ "/publications/journals/" | relative_url }}">Academic Journals</a>
-            <a href="{{ "/publications/conferences/" | relative_url }}">Conference Proceedings</a>
-            <a href="{{ "/publications/annual-review/" | relative_url }}">Annual Review</a>
+          <div class="dropdown-panel">
+            <h3>Publications & Archives</h3>
+            <div class="panel-content">
+              <div class="panel-section">
+                <h4>Academic Journals</h4>
+                <ul class="panel-links">
+                  <li><a href="{{ "/publications/hydro-mathematics-journal/" | relative_url }}">Journal of Hydro-Mathematics</a></li>
+                  <li><a href="{{ "/publications/fontaine-review/" | relative_url }}">Fontaine Review</a></li>
+                  <li><a href="{{ "/publications/advanced-mathematics/" | relative_url }}">Advanced Mathematics</a></li>
+                </ul>
+              </div>
+              <div class="panel-section">
+                <h4>Conference Proceedings</h4>
+                <ul class="panel-links">
+                  <li><a href="{{ "/publications/annual-symposium/" | relative_url }}">Annual Symposium</a></li>
+                  <li><a href="{{ "/publications/international-conference/" | relative_url }}">International Conference</a></li>
+                  <li><a href="{{ "/publications/student-presentations/" | relative_url }}">Student Presentations</a></li>
+                </ul>
+              </div>
+            </div>
           </div>
         </li>
-        <li class="nav-item dropdown">
+        <li class="nav-item">
           <a href="{{ "/members/" | relative_url }}"><span class="nav-icon">👥</span>Members <span class="dropdown-arrow">▼</span></a>
-          <div class="dropdown-content">
-            <a href="{{ "/members/faculty/" | relative_url }}">Faculty</a>
-            <a href="{{ "/members/students/" | relative_url }}">Students</a>
-            <a href="{{ "/members/alumni/" | relative_url }}">Alumni</a>
+          <div class="dropdown-panel">
+            <h3>Members & Community</h3>
+            <div class="panel-content">
+              <div class="panel-section">
+                <h4>Faculty</h4>
+                <ul class="panel-links">
+                  <li><a href="{{ "/members/professors/" | relative_url }}">Professors</a></li>
+                  <li><a href="{{ "/members/researchers/" | relative_url }}">Researchers</a></li>
+                  <li><a href="{{ "/members/visiting-scholars/" | relative_url }}">Visiting Scholars</a></li>
+                </ul>
+              </div>
+              <div class="panel-section">
+                <h4>Students</h4>
+                <ul class="panel-links">
+                  <li><a href="{{ "/members/graduate-programs/" | relative_url }}">Graduate Programs</a></li>
+                  <li><a href="{{ "/members/doctoral-candidates/" | relative_url }}">Doctoral Candidates</a></li>
+                  <li><a href="{{ "/members/student-resources/" | relative_url }}">Student Resources</a></li>
+                </ul>
+              </div>
+            </div>
           </div>
         </li>
       </ul>
@@ -74,6 +132,7 @@
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
   position: relative;
   overflow: hidden;
+  width: 100%;
 }
 
 /* Water background effect */
@@ -83,18 +142,52 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(60deg, 
-    transparent 40%, 
-    rgba(26, 93, 176, 0.2) 50%, 
-    transparent 60%);
-  background-size: 200% 200%;
-  animation: waterShimmer 8s infinite linear;
+  background: 
+    linear-gradient(60deg, 
+      transparent 40%, 
+      rgba(26, 93, 176, 0.2) 50%, 
+      transparent 60%),
+    radial-gradient(circle at 20% 70%, rgba(160, 196, 255, 0.1) 0%, transparent 20%),
+    radial-gradient(circle at 80% 30%, rgba(160, 196, 255, 0.1) 0%, transparent 20%);
+  background-size: 200% 200%, 300px 300px, 400px 400px;
+  animation: waterShimmer 15s infinite linear;
   z-index: 1;
 }
 
 @keyframes waterShimmer {
-  0% { background-position: 100% 100%; }
-  100% { background-position: 0% 0%; }
+  0% { background-position: 100% 100%, 20% 70%, 80% 30%; }
+  100% { background-position: 0% 0%, 320px 370px, 880px 130px; }
+}
+
+/* Water bubbles */
+.water-bubbles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.bubble {
+  position: absolute;
+  background: rgba(160, 196, 255, 0.15);
+  border-radius: 50%;
+  animation: floatUp 15s infinite ease-in-out;
+}
+
+@keyframes floatUp {
+  0% { 
+    transform: translateY(100%) scale(0.5); 
+    opacity: 0;
+  }
+  10% { opacity: 0.4; }
+  90% { opacity: 0.3; }
+  100% { 
+    transform: translateY(-100%) scale(1.2); 
+    opacity: 0;
+  }
 }
 
 /* Header container */
@@ -105,7 +198,7 @@
   max-width: 1400px;
   margin: 0 auto;
   position: relative;
-  z-index: 2;
+  z-index: 3;
 }
 
 /* Logo and title styling */
@@ -179,7 +272,7 @@
   letter-spacing: 0.5px;
 }
 
-/* Fedora-like navigation with dropdowns */
+/* Fedora-like navigation */
 .site-nav ul {
   list-style: none;
   display: flex;
@@ -192,7 +285,7 @@
   position: relative;
 }
 
-.site-nav a {
+.site-nav > ul > li > a {
   text-decoration: none;
   color: var(--fontaine-silver);
   font-weight: 600;
@@ -204,6 +297,7 @@
   position: relative;
   display: flex;
   align-items: center;
+  cursor: pointer;
 }
 
 .nav-icon {
@@ -214,24 +308,26 @@
 .dropdown-arrow {
   margin-left: 0.3rem;
   font-size: 0.8rem;
+  transition: transform 0.3s ease;
 }
 
-/* Dropdown menu styling */
-.dropdown-content {
+/* Fedora-style dropdown panels */
+.dropdown-panel {
   display: none;
   position: absolute;
   top: 100%;
   left: 0;
-  background: var(--fontaine-translucent);
+  background: rgba(10, 24, 48, 0.98);
   backdrop-filter: blur(10px);
-  min-width: 200px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  width: 600px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
   border: 1px solid var(--fontaine-bright-blue);
-  border-top: none;
+  border-top: 3px solid var(--fontaine-gold);
   border-radius: 0 0 8px 8px;
   overflow: hidden;
   z-index: 1000;
   animation: fadeIn 0.3s ease;
+  padding: 1.5rem;
 }
 
 @keyframes fadeIn {
@@ -239,29 +335,57 @@
   to { opacity: 1; transform: translateY(0); }
 }
 
-.dropdown-content a {
+.dropdown-panel h3 {
+  color: var(--fontaine-gold);
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+  border-bottom: 1px solid var(--fontaine-bright-blue);
+  padding-bottom: 0.5rem;
+}
+
+.panel-content {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.panel-section {
+  margin-bottom: 1rem;
+}
+
+.panel-section h4 {
+  color: var(--fontaine-light-blue);
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.panel-links {
+  list-style: none;
+}
+
+.panel-links li {
+  margin-bottom: 0.3rem;
+}
+
+.panel-links a {
   color: var(--fontaine-silver);
-  padding: 0.8rem 1.2rem;
   text-decoration: none;
-  display: block;
   font-size: 1rem;
-  text-transform: none;
-  border-bottom: 1px solid rgba(26, 93, 176, 0.3);
-  transition: all 0.2s ease;
-}
-
-.dropdown-content a:last-child {
-  border-bottom: none;
-}
-
-.dropdown-content a:hover {
-  background: rgba(26, 93, 176, 0.2);
-  color: var(--fontaine-white);
-}
-
-/* Show dropdown on hover */
-.nav-item.dropdown:hover .dropdown-content {
+  transition: color 0.2s ease;
   display: block;
+  padding: 0.3rem 0;
+}
+
+.panel-links a:hover {
+  color: var(--fontaine-gold);
+}
+
+.nav-item:hover .dropdown-panel {
+  display: block;
+}
+
+.nav-item:hover .dropdown-arrow {
+  transform: rotate(180deg);
 }
 
 /* Water wave effect at bottom */
@@ -307,18 +431,14 @@
     font-size: 1.6rem;
   }
   
-  .dropdown-content {
+  .dropdown-panel {
+    width: 100%;
     position: static;
     display: none;
-    width: 100%;
-    box-shadow: none;
-    border: 1px solid var(--fontaine-bright-blue);
-    border-radius: 8px;
     margin-top: 0.5rem;
   }
   
-  .nav-item.dropdown:hover .dropdown-content,
-  .nav-item.dropdown:focus-within .dropdown-content {
+  .nav-item:hover .dropdown-panel {
     display: block;
   }
 }
@@ -340,5 +460,46 @@
   .site-description {
     font-size: 0.95rem;
   }
+  
+  .panel-content {
+    grid-template-columns: 1fr;
+  }
 }
 </style>
+
+<script>
+// Create floating bubbles for the water effect
+function createBubbles() {
+  const bubblesContainer = document.getElementById('bubbles');
+  const header = document.querySelector('.fontaine-header');
+  const headerWidth = header.offsetWidth;
+  const headerHeight = header.offsetHeight;
+  
+  // Create multiple bubbles
+  for (let i = 0; i < 15; i++) {
+    const bubble = document.createElement('div');
+    bubble.classList.add('bubble');
+    
+    // Random size between 3 and 8 pixels
+    const size = Math.random() * 5 + 3;
+    bubble.style.width = `${size}px`;
+    bubble.style.height = `${size}px`;
+    
+    // Random position
+    bubble.style.left = `${Math.random() * headerWidth}px`;
+    
+    // Random delay and duration
+    const delay = Math.random() * 15;
+    const duration = Math.random() * 10 + 10;
+    bubble.style.animationDelay = `${delay}s`;
+    bubble.style.animationDuration = `${duration}s`;
+    
+    bubblesContainer.appendChild(bubble);
+  }
+}
+
+// Initialize the header when the page loads
+document.addEventListener('DOMContentLoaded', function() {
+  createBubbles();
+});
+</script>
