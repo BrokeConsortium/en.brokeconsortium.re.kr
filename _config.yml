@@ -25,3 +25,6 @@ seo:
 
 timezone: "Asia/Seoul"
 language: "en"
+
+include_cache:
+  enabled: true
