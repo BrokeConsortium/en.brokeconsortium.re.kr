@@ -1,0 +1,247 @@
+/* ===========================
+   Broke Consortium / Fontaine Academy Inspired CSS
+   Inspired by Furina aesthetics: deep blues, elegant typography, formal accents
+   =========================== */
+
+/* Base Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Lora", "Georgia", serif;
+  line-height: 1.6;
+  color: #f5f5f5;
+}
+
+/* Body Styling */
+body {
+  background: linear-gradient(180deg, #0a1a3c 0%, #1b2a5a 100%);
+  min-height: 100vh;
+  padding: 0;
+  margin: 0;
+  font-size: 18px;
+  color: #e0e7ff;
+  letter-spacing: 0.5px;
+}
+
+/* Links */
+a {
+  color: #80bfff;
+  text-decoration: none;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+a:hover {
+  color: #ffd479;
+  transform: scale(1.05);
+}
+
+/* Header / Hero */
+header {
+  background: linear-gradient(90deg, #11224d 0%, #1b2a5a 100%);
+  padding: 3rem 2rem;
+  text-align: center;
+  border-bottom: 2px solid #80bfff;
+}
+
+header img.logo {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  border: 2px solid #80bfff;
+  margin-bottom: 1rem;
+  transition: transform 0.3s ease;
+}
+header img.logo:hover {
+  transform: rotate(-5deg) scale(1.05);
+}
+
+header h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #a0c4ff;
+  letter-spacing: 2px;
+  margin-bottom: 0.5rem;
+  text-shadow: 1px 1px 4px #0a1a3c;
+}
+
+header h2 {
+  font-size: 1.5rem;
+  font-style: italic;
+  color: #dbe7ff;
+  letter-spacing: 1px;
+}
+
+/* Main Content */
+main {
+  max-width: 1100px;
+  margin: 3rem auto;
+  padding: 0 2rem;
+}
+
+/* Section Headings */
+h1, h2, h3, h4 {
+  font-family: "Merriweather", serif;
+  color: #a0c4ff;
+  margin-bottom: 1rem;
+}
+
+h1 {
+  font-size: 2.5rem;
+  border-bottom: 2px solid #80bfff;
+  padding-bottom: 0.5rem;
+  margin-top: 2rem;
+}
+
+h2 {
+  font-size: 2rem;
+  border-left: 4px solid #80bfff;
+  padding-left: 0.75rem;
+  margin-top: 2rem;
+}
+
+h3 {
+  font-size: 1.6rem;
+  color: #c0d4ff;
+  margin-top: 1.5rem;
+}
+
+/* Paragraphs */
+p {
+  margin-bottom: 1.5rem;
+  color: #e0e7ff;
+  text-align: justify;
+}
+
+/* Lists */
+ul, ol {
+  margin: 1rem 0 1.5rem 2rem;
+}
+li {
+  margin-bottom: 0.75rem;
+  color: #dbe7ff;
+}
+
+/* Buttons */
+.button {
+  display: inline-block;
+  background-color: #1b2a5a;
+  color: #f0f8ff;
+  padding: 0.75rem 1.75rem;
+  border-radius: 6px;
+  border: 1px solid #80bfff;
+  font-weight: 600;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+.button:hover {
+  background-color: #80bfff;
+  color: #0a1a3c;
+  transform: scale(1.05);
+}
+
+/* Tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem 0;
+}
+th, td {
+  padding: 0.75rem 1rem;
+  border: 1px solid #80bfff;
+}
+th {
+  background-color: #11224d;
+  color: #ffd479;
+}
+td {
+  background-color: #1b2a5a;
+  color: #dbe7ff;
+}
+
+/* Code / Pre blocks */
+pre, code {
+  background: #0a1a3c;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-family: "Fira Code", monospace;
+  overflow-x: auto;
+  color: #80bfff;
+}
+pre {
+  margin-bottom: 1.5rem;
+}
+
+/* Blockquotes */
+blockquote {
+  border-left: 4px solid #80bfff;
+  padding-left: 1rem;
+  color: #dbe7ff;
+  font-style: italic;
+  margin: 1.5rem 0;
+}
+
+/* Footer */
+footer {
+  background: #0d1f3c;
+  color: #a0c4ff;
+  text-align: center;
+  padding: 2rem 1rem;
+  border-top: 2px solid #80bfff;
+  font-size: 0.9rem;
+}
+
+/* Links in Footer */
+footer a {
+  color: #80bfff;
+}
+footer a:hover {
+  color: #ffd479;
+}
+
+/* Responsive Typography */
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 2.2rem;
+  }
+  header h2 {
+    font-size: 1.2rem;
+  }
+  main {
+    padding: 0 1rem;
+  }
+}
+
+/* Extra Fontaine Accents */
+hr {
+  border: 0;
+  height: 2px;
+  background: linear-gradient(to right, #80bfff, #a0c4ff, #80bfff);
+  margin: 3rem 0;
+}
+
+::selection {
+  background-color: #ffd479;
+  color: #0a1a3c;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #0a1a3c;
+}
+::-webkit-scrollbar-thumb {
+  background: #80bfff;
+  border-radius: 5px;
+}
+
+/* Academic accents: numbered citations */
+.citation {
+  font-size: 0.85rem;
+  vertical-align: super;
+  color: #ffd479;
+  margin-left: 0.25rem;
+}
