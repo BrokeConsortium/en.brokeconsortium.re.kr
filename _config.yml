@@ -3,3 +3,21 @@ title: Broke Consortium of Mathematical Research
 description: English site for the Broke Consortium
 baseurl: ""
 url: "https://brokeconsortium.github.io"
+author:
+  name: "Aitzaz Imtiaz"
+  email: "aitzazimtiaz@brokeconsortium.re.kr"
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+exclude:
+  - Gemfile
+
+seo:
+  title: "Broke Consortium"
+  description: "English site for the Broke Consortium"
+  github_username: "brokeconsortium"
+
+timezone: "Asia/Seoul"
+language: "en"
