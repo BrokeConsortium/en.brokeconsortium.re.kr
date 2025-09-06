@@ -1,117 +1,164 @@
 <header class="fontaine-header">
+  <!-- Water background effect -->
+  <div class="water-background"></div>
+  
   <div class="header-container">
-    <!-- Logo + Title with academic flourish -->
+    <!-- Logo + Title with Fontaine elegance -->
     <div class="logo-title">
-      <div class="logo-container">
+      <div class="logo-frame">
         <img src="https://avatars.githubusercontent.com/u/228621047?s=48&v=4" alt="Broke Consortium Logo" class="site-logo">
-        <div class="logo-decoration"></div>
+        <div class="logo-water-ripple"></div>
       </div>
       <div class="site-info">
         <h1 class="site-title"><a href="{{ "/" | relative_url }}">Broke Consortium of Mathematical Research</a></h1>
-        <p class="site-description">Institute of Advanced Mathematical Sciences</p>
+        <p class="site-description">Court of Fontaine Institute of Advanced Hydro-Mathematics</p>
       </div>
     </div>
 
-    <!-- Navigation with elegant Fedora/Fontaine style -->
+    <!-- Fedora-like navigation with dropdowns -->
     <nav class="site-nav">
       <ul>
-        <li><a href="{{ "/" | relative_url }}"><span class="nav-icon">🏠</span>Home</a></li>
-        <li><a href="{{ "/research/" | relative_url }}"><span class="nav-icon">🔬</span>Research</a></li>
-        <li><a href="{{ "/publications/" | relative_url }}"><span class="nav-icon">📚</span>Publications</a></li>
-        <li><a href="{{ "/members/" | relative_url }}"><span class="nav-icon">👥</span>Members</a></li>
+        <li class="nav-item">
+          <a href="{{ "/" | relative_url }}"><span class="nav-icon">🏠</span>Home</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a href="{{ "/research/" | relative_url }}"><span class="nav-icon">🔬</span>Research <span class="dropdown-arrow">▼</span></a>
+          <div class="dropdown-content">
+            <a href="{{ "/research/hydro-mathematics/" | relative_url }}">Hydro-Mathematics</a>
+            <a href="{{ "/research/fontaine-laws/" | relative_url }}">Fontaine's Laws</a>
+            <a href="{{ "/research/energy-studies/" | relative_url }}">Energy Studies</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a href="{{ "/publications/" | relative_url }}"><span class="nav-icon">📚</span>Publications <span class="dropdown-arrow">▼</span></a>
+          <div class="dropdown-content">
+            <a href="{{ "/publications/journals/" | relative_url }}">Academic Journals</a>
+            <a href="{{ "/publications/conferences/" | relative_url }}">Conference Proceedings</a>
+            <a href="{{ "/publications/annual-review/" | relative_url }}">Annual Review</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a href="{{ "/members/" | relative_url }}"><span class="nav-icon">👥</span>Members <span class="dropdown-arrow">▼</span></a>
+          <div class="dropdown-content">
+            <a href="{{ "/members/faculty/" | relative_url }}">Faculty</a>
+            <a href="{{ "/members/students/" | relative_url }}">Students</a>
+            <a href="{{ "/members/alumni/" | relative_url }}">Alumni</a>
+          </div>
+        </li>
       </ul>
     </nav>
   </div>
   
-  <!-- Decorative water-like element (Fontaine theme) -->
-  <div class="water-accent"></div>
+  <!-- Water wave accent at bottom -->
+  <div class="water-wave"></div>
 </header>
 
 <style>
-/* Fontaine/Fedora inspired color scheme */
+/* Fontaine-inspired color scheme */
 :root {
-  --fontaine-deep-blue: #0d233f;
-  --fontaine-bright-blue: #1e5db3;
+  --fontaine-deep-blue: #0a1830;
+  --fontaine-bright-blue: #1a5db0;
   --fontaine-light-blue: #a0c4ff;
   --fontaine-gold: #d4af37;
-  --fontaine-white: #f5f7ff;
   --fontaine-silver: #e6e9f0;
+  --fontaine-white: #f5f7ff;
+  --fontaine-translucent: rgba(10, 24, 48, 0.85);
 }
 
-/* Header Container with Fedora-like elegance */
+/* Header with water background */
 .fontaine-header {
   background: linear-gradient(135deg, var(--fontaine-deep-blue) 0%, #142850 100%);
   border-bottom: 3px solid var(--fontaine-bright-blue);
   padding: 1.2rem 2.5rem;
   font-family: 'Crimson Pro', 'Times New Roman', serif;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
   position: relative;
   overflow: hidden;
 }
 
-/* Flex container */
+/* Water background effect */
+.water-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(60deg, 
+    transparent 40%, 
+    rgba(26, 93, 176, 0.2) 50%, 
+    transparent 60%);
+  background-size: 200% 200%;
+  animation: waterShimmer 8s infinite linear;
+  z-index: 1;
+}
+
+@keyframes waterShimmer {
+  0% { background-position: 100% 100%; }
+  100% { background-position: 0% 0%; }
+}
+
+/* Header container */
 .header-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  max-width: 1300px;
+  max-width: 1400px;
   margin: 0 auto;
   position: relative;
   z-index: 2;
 }
 
-/* Logo + title with academic flourish */
+/* Logo and title styling */
 .logo-title {
   display: flex;
   align-items: center;
   position: relative;
 }
 
-.logo-container {
+.logo-frame {
   position: relative;
   margin-right: 1.2rem;
+  border: 2px solid var(--fontaine-gold);
+  border-radius: 50%;
+  padding: 4px;
+  background: var(--fontaine-translucent);
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
 }
 
 .site-logo {
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  border: 2px solid var(--fontaine-gold);
-  box-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
+  display: block;
   position: relative;
   z-index: 2;
-  background: var(--fontaine-white);
 }
 
-.logo-decoration {
+.logo-water-ripple {
   position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   width: 70px;
   height: 70px;
-  border: 1px solid var(--fontaine-gold);
   border-radius: 50%;
-  top: -6px;
-  left: -6px;
-  z-index: 1;
+  border: 2px solid var(--fontaine-light-blue);
+  opacity: 0.6;
+  animation: waterRipple 3s infinite linear;
 }
 
-.logo-decoration::before, .logo-decoration::after {
-  content: "";
-  position: absolute;
-  width: 80px;
-  height: 80px;
-  border: 1px solid rgba(212, 175, 55, 0.3);
-  border-radius: 50%;
-  top: -5px;
-  left: -5px;
+@keyframes waterRipple {
+  0% { width: 60px; height: 60px; opacity: 0.8; }
+  100% { width: 80px; height: 80px; opacity: 0; }
 }
 
 .site-title {
   margin: 0;
-  font-size: 1.8rem;
+  font-size: 1.9rem;
   font-weight: 700;
   color: var(--fontaine-white);
   letter-spacing: 0.5px;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
 }
 
 .site-title a {
@@ -125,75 +172,113 @@
 }
 
 .site-description {
-  margin: 0.2rem 0 0 0;
-  font-size: 1rem;
+  margin: 0.3rem 0 0 0;
+  font-size: 1.05rem;
   color: var(--fontaine-light-blue);
   font-style: italic;
   letter-spacing: 0.5px;
 }
 
-/* Navigation with Fedora elegance */
+/* Fedora-like navigation with dropdowns */
 .site-nav ul {
   list-style: none;
   display: flex;
-  gap: 2.2rem;
+  gap: 2.5rem;
   margin: 0;
   padding: 0;
+}
+
+.nav-item {
+  position: relative;
 }
 
 .site-nav a {
   text-decoration: none;
   color: var(--fontaine-silver);
   font-weight: 600;
-  font-size: 1.05rem;
+  font-size: 1.1rem;
   text-transform: uppercase;
   letter-spacing: 0.5px;
   transition: all 0.3s ease;
-  padding: 0.5rem 0;
+  padding: 0.6rem 0;
   position: relative;
   display: flex;
   align-items: center;
 }
 
 .nav-icon {
-  margin-right: 0.4rem;
-  font-size: 1.1rem;
+  margin-right: 0.5rem;
+  font-size: 1.2rem;
 }
 
-.site-nav a::after {
-  content: "";
+.dropdown-arrow {
+  margin-left: 0.3rem;
+  font-size: 0.8rem;
+}
+
+/* Dropdown menu styling */
+.dropdown-content {
+  display: none;
   position: absolute;
-  bottom: 0;
+  top: 100%;
   left: 0;
-  width: 0;
-  height: 2px;
-  background: linear-gradient(90deg, var(--fontaine-gold), var(--fontaine-bright-blue));
-  transition: width 0.3s ease;
+  background: var(--fontaine-translucent);
+  backdrop-filter: blur(10px);
+  min-width: 200px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--fontaine-bright-blue);
+  border-top: none;
+  border-radius: 0 0 8px 8px;
+  overflow: hidden;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease;
 }
 
-.site-nav a:hover {
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.dropdown-content a {
+  color: var(--fontaine-silver);
+  padding: 0.8rem 1.2rem;
+  text-decoration: none;
+  display: block;
+  font-size: 1rem;
+  text-transform: none;
+  border-bottom: 1px solid rgba(26, 93, 176, 0.3);
+  transition: all 0.2s ease;
+}
+
+.dropdown-content a:last-child {
+  border-bottom: none;
+}
+
+.dropdown-content a:hover {
+  background: rgba(26, 93, 176, 0.2);
   color: var(--fontaine-white);
 }
 
-.site-nav a:hover::after {
-  width: 100%;
+/* Show dropdown on hover */
+.nav-item.dropdown:hover .dropdown-content {
+  display: block;
 }
 
-/* Water accent element (Fontaine theme) */
-.water-accent {
+/* Water wave effect at bottom */
+.water-wave {
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 3px;
+  height: 4px;
   background: linear-gradient(90deg, 
     transparent, 
     var(--fontaine-bright-blue), 
     var(--fontaine-light-blue), 
     var(--fontaine-bright-blue), 
     transparent);
-  opacity: 0.7;
-  animation: waterFlow 8s infinite linear;
+  opacity: 0.8;
+  animation: waterFlow 6s infinite linear;
 }
 
 @keyframes waterFlow {
@@ -202,7 +287,7 @@
 }
 
 /* Responsive design */
-@media (max-width: 900px) {
+@media (max-width: 1000px) {
   .fontaine-header {
     padding: 1rem 1.5rem;
   }
@@ -210,16 +295,31 @@
   .header-container {
     flex-direction: column;
     align-items: flex-start;
-    gap: 1rem;
+    gap: 1.2rem;
   }
   
   .site-nav ul {
     flex-direction: column;
-    gap: 0.8rem;
+    gap: 1rem;
   }
   
   .site-title {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
+  }
+  
+  .dropdown-content {
+    position: static;
+    display: none;
+    width: 100%;
+    box-shadow: none;
+    border: 1px solid var(--fontaine-bright-blue);
+    border-radius: 8px;
+    margin-top: 0.5rem;
+  }
+  
+  .nav-item.dropdown:hover .dropdown-content,
+  .nav-item.dropdown:focus-within .dropdown-content {
+    display: block;
   }
 }
 
@@ -229,8 +329,16 @@
     align-items: flex-start;
   }
   
-  .logo-container {
+  .logo-frame {
     margin-bottom: 0.8rem;
+  }
+  
+  .site-title {
+    font-size: 1.4rem;
+  }
+  
+  .site-description {
+    font-size: 0.95rem;
   }
 }
 </style>
