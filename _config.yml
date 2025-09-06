@@ -14,6 +14,7 @@ plugins:
   - jekyll-picture-tag
   - jekyll-include-cache
   - jekyll-paginate-v2
+  - jekyll-typogrify
 
 exclude:
   - Gemfile
@@ -28,3 +29,10 @@ language: "en"
 
 include_cache:
   enabled: true
+
+typogrify:
+  enable: true
+  smart_quotes: true
+  smart_dashes: true
+  ellipses: true
+  caps: true
