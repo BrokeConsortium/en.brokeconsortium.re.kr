@@ -1,34 +1,52 @@
-<header class="site-header">
+<header class="fontaine-header">
   <div class="header-container">
-    <!-- Logo + Title -->
+    <!-- Logo + Title with academic flourish -->
     <div class="logo-title">
-      <img src="https://avatars.githubusercontent.com/u/228621047?s=48&v=4" alt="Broke Consortium Logo" class="site-logo">
+      <div class="logo-container">
+        <img src="https://avatars.githubusercontent.com/u/228621047?s=48&v=4" alt="Broke Consortium Logo" class="site-logo">
+        <div class="logo-decoration"></div>
+      </div>
       <div class="site-info">
         <h1 class="site-title"><a href="{{ "/" | relative_url }}">Broke Consortium of Mathematical Research</a></h1>
         <p class="site-description">Institute of Advanced Mathematical Sciences</p>
       </div>
     </div>
 
-    <!-- Navigation -->
+    <!-- Navigation with elegant Fedora/Fontaine style -->
     <nav class="site-nav">
       <ul>
-        <li><a href="{{ "/" | relative_url }}">Home</a></li>
-        <li><a href="{{ "/research/" | relative_url }}">Research</a></li>
-        <li><a href="{{ "/publications/" | relative_url }}">Publications</a></li>
-        <li><a href="{{ "/members/" | relative_url }}">Members</a></li>
+        <li><a href="{{ "/" | relative_url }}"><span class="nav-icon">🏠</span>Home</a></li>
+        <li><a href="{{ "/research/" | relative_url }}"><span class="nav-icon">🔬</span>Research</a></li>
+        <li><a href="{{ "/publications/" | relative_url }}"><span class="nav-icon">📚</span>Publications</a></li>
+        <li><a href="{{ "/members/" | relative_url }}"><span class="nav-icon">👥</span>Members</a></li>
       </ul>
     </nav>
   </div>
+  
+  <!-- Decorative water-like element (Fontaine theme) -->
+  <div class="water-accent"></div>
 </header>
 
 <style>
-/* Header Container */
-.site-header {
-  background-color: #0d1f3c; /* deep Fontaine-like blue */
-  border-bottom: 2px solid #1e4d8b; /* slightly brighter accent line */
-  padding: 1rem 2rem;
-  font-family: 'Roboto Slab', serif; /* academic / strong font */
-  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+/* Fontaine/Fedora inspired color scheme */
+:root {
+  --fontaine-deep-blue: #0d233f;
+  --fontaine-bright-blue: #1e5db3;
+  --fontaine-light-blue: #a0c4ff;
+  --fontaine-gold: #d4af37;
+  --fontaine-white: #f5f7ff;
+  --fontaine-silver: #e6e9f0;
+}
+
+/* Header Container with Fedora-like elegance */
+.fontaine-header {
+  background: linear-gradient(135deg, var(--fontaine-deep-blue) 0%, #142850 100%);
+  border-bottom: 3px solid var(--fontaine-bright-blue);
+  padding: 1.2rem 2.5rem;
+  font-family: 'Crimson Pro', 'Times New Roman', serif;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  position: relative;
+  overflow: hidden;
 }
 
 /* Flex container */
@@ -36,78 +54,183 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  max-width: 1200px;
+  max-width: 1300px;
   margin: 0 auto;
+  position: relative;
+  z-index: 2;
 }
 
-/* Logo + title */
+/* Logo + title with academic flourish */
 .logo-title {
   display: flex;
   align-items: center;
+  position: relative;
+}
+
+.logo-container {
+  position: relative;
+  margin-right: 1.2rem;
 }
 
 .site-logo {
-  width: 56px;
-  height: 56px;
-  margin-right: 1rem;
-  border-radius: 4px;
-  border: 2px solid #1e4d8b; /* accent line around logo */
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 2px solid var(--fontaine-gold);
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
+  position: relative;
+  z-index: 2;
+  background: var(--fontaine-white);
+}
+
+.logo-decoration {
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  border: 1px solid var(--fontaine-gold);
+  border-radius: 50%;
+  top: -6px;
+  left: -6px;
+  z-index: 1;
+}
+
+.logo-decoration::before, .logo-decoration::after {
+  content: "";
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 50%;
+  top: -5px;
+  left: -5px;
 }
 
 .site-title {
   margin: 0;
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   font-weight: 700;
-  color: #ffffff;
-  letter-spacing: 1px;
+  color: var(--fontaine-white);
+  letter-spacing: 0.5px;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
 }
 
 .site-title a {
   text-decoration: none;
   color: inherit;
+  transition: color 0.3s ease;
+}
+
+.site-title a:hover {
+  color: var(--fontaine-gold);
 }
 
 .site-description {
-  margin: 0;
-  font-size: 0.95rem;
-  color: #a0c4ff; /* lighter blue accent for description */
+  margin: 0.2rem 0 0 0;
+  font-size: 1rem;
+  color: var(--fontaine-light-blue);
   font-style: italic;
+  letter-spacing: 0.5px;
 }
 
-/* Navigation */
+/* Navigation with Fedora elegance */
 .site-nav ul {
   list-style: none;
   display: flex;
-  gap: 2rem;
+  gap: 2.2rem;
   margin: 0;
   padding: 0;
 }
 
 .site-nav a {
   text-decoration: none;
-  color: #a0c4ff;
+  color: var(--fontaine-silver);
   font-weight: 600;
-  font-size: 1rem;
+  font-size: 1.05rem;
   text-transform: uppercase;
-  transition: color 0.2s, border-bottom 0.2s;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  padding: 0.5rem 0;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.nav-icon {
+  margin-right: 0.4rem;
+  font-size: 1.1rem;
+}
+
+.site-nav a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--fontaine-gold), var(--fontaine-bright-blue));
+  transition: width 0.3s ease;
 }
 
 .site-nav a:hover {
-  color: #ffffff;
-  border-bottom: 2px solid #ffffff;
+  color: var(--fontaine-white);
 }
 
-/* Responsive tweaks */
-@media (max-width: 768px) {
+.site-nav a:hover::after {
+  width: 100%;
+}
+
+/* Water accent element (Fontaine theme) */
+.water-accent {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, 
+    transparent, 
+    var(--fontaine-bright-blue), 
+    var(--fontaine-light-blue), 
+    var(--fontaine-bright-blue), 
+    transparent);
+  opacity: 0.7;
+  animation: waterFlow 8s infinite linear;
+}
+
+@keyframes waterFlow {
+  0% { background-position: -1000px 0; }
+  100% { background-position: 1000px 0; }
+}
+
+/* Responsive design */
+@media (max-width: 900px) {
+  .fontaine-header {
+    padding: 1rem 1.5rem;
+  }
+  
   .header-container {
     flex-direction: column;
     align-items: flex-start;
-    gap: 0.5rem;
+    gap: 1rem;
   }
   
   .site-nav ul {
     flex-direction: column;
     gap: 0.8rem;
+  }
+  
+  .site-title {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .logo-title {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .logo-container {
+    margin-bottom: 0.8rem;
   }
 }
 </style>
