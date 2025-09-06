@@ -1,0 +1,113 @@
+<header class="site-header">
+  <div class="header-container">
+    <!-- Logo + Title -->
+    <div class="logo-title">
+      <img src="https://avatars.githubusercontent.com/u/228621047?s=48&v=4" alt="Broke Consortium Logo" class="site-logo">
+      <div class="site-info">
+        <h1 class="site-title"><a href="{{ "/" | relative_url }}">Broke Consortium of Mathematical Research</a></h1>
+        <p class="site-description">Institute of Advanced Mathematical Sciences</p>
+      </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="site-nav">
+      <ul>
+        <li><a href="{{ "/" | relative_url }}">Home</a></li>
+        <li><a href="{{ "/research/" | relative_url }}">Research</a></li>
+        <li><a href="{{ "/publications/" | relative_url }}">Publications</a></li>
+        <li><a href="{{ "/members/" | relative_url }}">Members</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<style>
+/* Header Container */
+.site-header {
+  background-color: #0d1f3c; /* deep Fontaine-like blue */
+  border-bottom: 2px solid #1e4d8b; /* slightly brighter accent line */
+  padding: 1rem 2rem;
+  font-family: 'Roboto Slab', serif; /* academic / strong font */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+/* Flex container */
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Logo + title */
+.logo-title {
+  display: flex;
+  align-items: center;
+}
+
+.site-logo {
+  width: 56px;
+  height: 56px;
+  margin-right: 1rem;
+  border-radius: 4px;
+  border: 2px solid #1e4d8b; /* accent line around logo */
+}
+
+.site-title {
+  margin: 0;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 1px;
+}
+
+.site-title a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.site-description {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #a0c4ff; /* lighter blue accent for description */
+  font-style: italic;
+}
+
+/* Navigation */
+.site-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+}
+
+.site-nav a {
+  text-decoration: none;
+  color: #a0c4ff;
+  font-weight: 600;
+  font-size: 1rem;
+  text-transform: uppercase;
+  transition: color 0.2s, border-bottom 0.2s;
+}
+
+.site-nav a:hover {
+  color: #ffffff;
+  border-bottom: 2px solid #ffffff;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .header-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .site-nav ul {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+}
+</style>
