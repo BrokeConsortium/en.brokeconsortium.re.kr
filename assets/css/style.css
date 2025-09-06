@@ -1,247 +1,404 @@
-/* ===========================
-   Broke Consortium / Fontaine Academy Inspired CSS
-   Inspired by Furina aesthetics: deep blues, elegant typography, formal accents
-   =========================== */
+/* ==========================================================================
+   /assets/css/style.css
+   Broke Consortium — Fontaine / "mechanics" inspired academic stylesheet
+   White background, elegant serif headings, clear readable body text,
+   math-friendly rules (KaTeX/MathJax), theorems, proofs, publication list.
+   ========================================================================== */
 
-/* Base Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Lora", "Georgia", serif;
-  line-height: 1.6;
-  color: #f5f5f5;
+/* -------------------------
+   Theme variables (tune here)
+   ------------------------- */
+:root{
+  --paper: #ffffff;                /* page background */
+  --ink: #111827;                  /* main text (very dark) */
+  --muted: #6b7280;                /* secondary text / captions */
+  --fontaine: #1e4d8b;             /* primary Fontaine blue */
+  --accent: #3b82c4;               /* lighter blue accent */
+  --gold: #b7791f;                 /* subtle gold for citations/accents */
+  --rule: #e6eef8;                 /* faint rules */
+  --card-bg: #fcfdff;              /* subtle off-white for cards */
+  --shadow: 0 8px 24px rgba(17,24,39,0.06);
+  --max-width: 1100px;
+  --measure: 70ch;                 /* ideal measure for readable paragraphs */
 }
 
-/* Body Styling */
-body {
-  background: linear-gradient(180deg, #0a1a3c 0%, #1b2a5a 100%);
-  min-height: 100vh;
-  padding: 0;
-  margin: 0;
+/* -------------------------
+   Base reset / typography
+   ------------------------- */
+* { box-sizing: border-box; }
+html,body { height: 100%; }
+body{
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Inter, "Helvetica Neue", Arial, system-ui, -apple-system, "Segoe UI", sans-serif;
   font-size: 18px;
-  color: #e0e7ff;
-  letter-spacing: 0.5px;
+  line-height: 1.7;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  -webkit-text-size-adjust:100%;
+  margin: 0;
 }
 
-/* Links */
+/* Limit measure for long text */
+.container {
+  max-width: var(--max-width);
+  margin: 2.25rem auto;
+  padding: 0 1.25rem;
+}
+
+/* -------------------------
+   Link styles
+   ------------------------- */
 a {
-  color: #80bfff;
+  color: var(--fontaine);
   text-decoration: none;
-  transition: color 0.3s ease, transform 0.2s ease;
+  border-bottom: 1px solid rgba(30,77,139,0.10);
+  transition: color .18s ease, border-color .18s ease, transform .08s ease;
 }
-a:hover {
-  color: #ffd479;
-  transform: scale(1.05);
-}
-
-/* Header / Hero */
-header {
-  background: linear-gradient(90deg, #11224d 0%, #1b2a5a 100%);
-  padding: 3rem 2rem;
-  text-align: center;
-  border-bottom: 2px solid #80bfff;
+a:hover, a:focus {
+  color: var(--accent);
+  border-color: rgba(59,130,196,0.22);
+  transform: translateY(-1px);
+  outline: none;
 }
 
-header img.logo {
-  width: 72px;
-  height: 72px;
-  border-radius: 50%;
-  border: 2px solid #80bfff;
-  margin-bottom: 1rem;
-  transition: transform 0.3s ease;
+/* -------------------------
+   Header & navigation
+   ------------------------- */
+.site-header {
+  background: linear-gradient(180deg, rgba(30,77,139,0.03), rgba(59,130,196,0.02));
+  padding: 1.25rem 0;
+  border-bottom: 1px solid var(--rule);
 }
-header img.logo:hover {
-  transform: rotate(-5deg) scale(1.05);
+.site-header .header-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
 }
-
-header h1 {
-  font-size: 3rem;
-  font-weight: 800;
-  color: #a0c4ff;
-  letter-spacing: 2px;
-  margin-bottom: 0.5rem;
-  text-shadow: 1px 1px 4px #0a1a3c;
+.brand {
+  display: flex;
+  gap: 0.9rem;
+  align-items: center;
 }
-
-header h2 {
-  font-size: 1.5rem;
+.brand .logo {
+  width: 64px;
+  height: 64px;
+  border-radius: 6px;
+  border: 2px solid rgba(30,77,139,0.12);
+  background: var(--card-bg);
+  display: block;
+  object-fit: cover;
+}
+.brand .title {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+}
+.brand .site-title {
+  font-family: "Merriweather", "Georgia", serif;
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: var(--fontaine);
+  letter-spacing: 0.6px;
+}
+.brand .site-sub {
+  font-size: .88rem;
+  color: var(--muted);
+  margin-top: 0.15rem;
   font-style: italic;
-  color: #dbe7ff;
-  letter-spacing: 1px;
 }
 
-/* Main Content */
-main {
-  max-width: 1100px;
-  margin: 3rem auto;
-  padding: 0 2rem;
+/* simple nav */
+.site-nav {
+  display:flex;
+  gap: 1rem;
+  align-items:center;
+}
+.site-nav a {
+  font-size: .95rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--fontaine);
+  padding: .4rem .6rem;
+  border-radius: 4px;
+}
+.site-nav a:hover { background: rgba(30,77,139,0.04); }
+
+/* -------------------------
+   Hero / page title
+   ------------------------- */
+.page-hero {
+  margin: 2rem 0;
+  padding: 2rem 1.25rem;
+  border-radius: 8px;
+  background: linear-gradient(180deg, rgba(59,130,196,0.03), rgba(30,77,139,0.02));
+  border: 1px solid var(--rule);
+  box-shadow: var(--shadow);
+}
+.page-hero h1 {
+  margin: 0 0 .25rem 0;
+  font-family: "Merriweather", serif;
+  font-size: 2.2rem;
+  color: var(--fontaine);
+  letter-spacing: .6px;
+}
+.page-hero p.lead {
+  margin: 0;
+  color: var(--muted);
+  font-size: 1.05rem;
 }
 
-/* Section Headings */
+/* -------------------------
+   Body content (typography)
+   ------------------------- */
+article {
+  margin-top: 2rem;
+  color: var(--ink);
+  max-width: var(--measure);
+}
 h1, h2, h3, h4 {
   font-family: "Merriweather", serif;
-  color: #a0c4ff;
-  margin-bottom: 1rem;
+  color: var(--fontaine);
+  margin-top: 1.8rem;
+  margin-bottom: .6rem;
+  line-height: 1.15;
+}
+h1 { font-size: 1.9rem; border-bottom: 3px solid rgba(30,77,139,0.06); padding-bottom: .5rem; }
+h2 { font-size: 1.45rem; border-left: 4px solid rgba(30,77,139,0.08); padding-left: .8rem; }
+h3 { font-size: 1.15rem; }
+p { margin: 0 0 1rem 0; color: #222; font-size: 1rem; text-align: justify; }
+
+/* Emphasis and small caps for academic feel */
+em { color: var(--fontaine); font-style: normal; font-weight: 600; }
+.smallcaps { font-variant: small-caps; letter-spacing: .6px; color: var(--muted); }
+
+/* -------------------------
+   Theorem / Proof / Definition blocks
+   Usage in markdown: 
+   <div class="theorem"><div class="th-title">Theorem 1.</div><p>...</p></div>
+   or use kramdown / custom includes to generate these.
+   ------------------------- */
+.theorem, .lemma, .proposition, .corollary, .definition {
+  border-left: 4px solid var(--fontaine);
+  background: linear-gradient(180deg, rgba(30,77,139,0.02),rgba(59,130,196,0.01));
+  padding: .9rem 1rem;
+  margin: 1rem 0;
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(17,24,39,0.02);
+}
+.theorem .th-title, .lemma .th-title, .definition .th-title {
+  font-weight: 700;
+  font-family: "Merriweather", serif;
+  color: var(--fontaine);
+  margin-bottom: .5rem;
+  font-size: 1rem;
+}
+.theorem p, .lemma p, .definition p {
+  margin: 0;
+  color: #222;
 }
 
-h1 {
-  font-size: 2.5rem;
-  border-bottom: 2px solid #80bfff;
-  padding-bottom: 0.5rem;
-  margin-top: 2rem;
+/* Proof */
+.proof {
+  margin: 0.6rem 0 1rem 0;
+  padding: .6rem .9rem;
+  border-left: 4px dashed var(--muted);
+  background: rgba(0,0,0,0.01);
+  border-radius: 4px;
+}
+.proof .proof-title { font-weight: 700; color: var(--muted); margin-bottom: .45rem; }
+
+/* QED symbol aligned right */
+.qed {
+  display: block;
+  text-align: right;
+  font-weight: 700;
+  color: var(--muted);
+  margin-top: .5rem;
 }
 
-h2 {
-  font-size: 2rem;
-  border-left: 4px solid #80bfff;
-  padding-left: 0.75rem;
-  margin-top: 2rem;
-}
-
-h3 {
-  font-size: 1.6rem;
-  color: #c0d4ff;
-  margin-top: 1.5rem;
-}
-
-/* Paragraphs */
-p {
-  margin-bottom: 1.5rem;
-  color: #e0e7ff;
-  text-align: justify;
-}
-
-/* Lists */
-ul, ol {
-  margin: 1rem 0 1.5rem 2rem;
-}
-li {
-  margin-bottom: 0.75rem;
-  color: #dbe7ff;
-}
-
-/* Buttons */
-.button {
-  display: inline-block;
-  background-color: #1b2a5a;
-  color: #f0f8ff;
-  padding: 0.75rem 1.75rem;
+/* -------------------------
+   Math / display equations
+   Supports KaTeX / MathJax classes (.katex-display, .math)
+   ------------------------- */
+.katex-display, .math-display, .display-math {
+  margin: 1rem 0;
+  padding: .9rem 1rem;
+  background: #fbfdff;
+  border: 1px solid var(--rule);
   border-radius: 6px;
-  border: 1px solid #80bfff;
-  font-weight: 600;
-  letter-spacing: 1px;
-  transition: all 0.3s ease;
-  cursor: pointer;
-  text-transform: uppercase;
-}
-.button:hover {
-  background-color: #80bfff;
-  color: #0a1a3c;
-  transform: scale(1.05);
-}
-
-/* Tables */
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 2rem 0;
-}
-th, td {
-  padding: 0.75rem 1rem;
-  border: 1px solid #80bfff;
-}
-th {
-  background-color: #11224d;
-  color: #ffd479;
-}
-td {
-  background-color: #1b2a5a;
-  color: #dbe7ff;
-}
-
-/* Code / Pre blocks */
-pre, code {
-  background: #0a1a3c;
-  padding: 0.5rem 1rem;
-  border-radius: 6px;
-  font-family: "Fira Code", monospace;
   overflow-x: auto;
-  color: #80bfff;
-}
-pre {
-  margin-bottom: 1.5rem;
+  font-family: "Latin Modern Math", "STIX Two Math", serif;
+  color: var(--ink);
 }
 
-/* Blockquotes */
-blockquote {
-  border-left: 4px solid #80bfff;
-  padding-left: 1rem;
-  color: #dbe7ff;
-  font-style: italic;
-  margin: 1.5rem 0;
+/* Inline math (wrap in span.math-inline if needed) */
+.math-inline { background: rgba(30,77,139,0.03); padding: 0 .18rem; border-radius: 3px; color: var(--fontaine); }
+
+/* Equation numbering (if you output numbers wrapped in .eqno) */
+.eqno { float: right; color: var(--muted); font-size: .95rem; margin-left: 0.5rem; }
+
+/* -------------------------
+   Publication / papers list
+   ------------------------- */
+.publication-list {
+  margin: 1.25rem 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+.pub {
+  padding: .9rem 1rem;
+  background: var(--card-bg);
+  border: 1px solid var(--rule);
+  border-left: 4px solid var(--fontaine);
+  border-radius: 6px;
+  box-shadow: 0 6px 18px rgba(17,24,39,0.03);
+}
+.pub .title { font-weight: 700; color: var(--ink); }
+.pub .meta { color: var(--muted); font-size: .92rem; margin-top: .35rem; }
+.pub .tags { margin-top: .6rem; display:flex; gap:.5rem; flex-wrap:wrap; }
+.tag {
+  background: rgba(30,77,139,0.06);
+  color: var(--fontaine);
+  padding: .25rem .5rem;
+  border-radius: 4px;
+  font-size: .86rem;
 }
 
-/* Footer */
-footer {
-  background: #0d1f3c;
-  color: #a0c4ff;
-  text-align: center;
-  padding: 2rem 1rem;
-  border-top: 2px solid #80bfff;
-  font-size: 0.9rem;
+/* -------------------------
+   Author / member card (sidebar)
+   ------------------------- */
+.author-card {
+  padding: .9rem .95rem;
+  background: var(--card-bg);
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  width: 260px;
+}
+.author-card img {
+  width: 64px;
+  height: 64px;
+  border-radius: 6px;
+  object-fit: cover;
+  display:block;
+}
+.author-name { font-weight: 700; margin-top: .5rem; color: var(--fontaine); }
+.author-role { color: var(--muted); font-size: .92rem; }
+
+/* -------------------------
+   Figures, captions
+   ------------------------- */
+figure { margin: 1rem 0; text-align: center; }
+figure img { max-width: 100%; border-radius: 6px; border: 1px solid var(--rule); }
+figcaption { font-size: .9rem; color: var(--muted); margin-top: .45rem; }
+
+/* -------------------------
+   Tables (academic style)
+   ------------------------- */
+.table-responsive { overflow-x:auto; margin: 1rem 0; }
+table {
+  width:100%;
+  border-collapse: collapse;
+  font-size: .95rem;
+}
+thead th {
+  text-align: left;
+  background: linear-gradient(180deg, #ffffff, #fbfdff);
+  color: var(--fontaine);
+  font-weight: 700;
+  border-bottom: 2px solid var(--rule);
+}
+tbody td {
+  padding: .6rem .8rem;
+  border-bottom: 1px solid var(--rule);
+  color: #222;
 }
 
-/* Links in Footer */
-footer a {
-  color: #80bfff;
+/* -------------------------
+   Code blocks and inline code
+   ------------------------- */
+pre, code {
+  font-family: "Fira Code", "Source Code Pro", monospace;
+  background: #f6f8fb;
+  color: #0f1724;
+  padding: .45rem .6rem;
+  border-radius: 6px;
 }
-footer a:hover {
-  color: #ffd479;
-}
+pre { padding: .9rem 1rem; overflow-x:auto; }
+code.inline { padding: .15rem .28rem; font-size: .95rem; }
 
-/* Responsive Typography */
-@media (max-width: 768px) {
-  header h1 {
-    font-size: 2.2rem;
-  }
-  header h2 {
-    font-size: 1.2rem;
-  }
-  main {
-    padding: 0 1rem;
-  }
-}
-
-/* Extra Fontaine Accents */
-hr {
-  border: 0;
-  height: 2px;
-  background: linear-gradient(to right, #80bfff, #a0c4ff, #80bfff);
-  margin: 3rem 0;
-}
-
-::selection {
-  background-color: #ffd479;
-  color: #0a1a3c;
-}
-
-/* Scrollbar */
-::-webkit-scrollbar {
-  width: 10px;
-}
-::-webkit-scrollbar-track {
-  background: #0a1a3c;
-}
-::-webkit-scrollbar-thumb {
-  background: #80bfff;
-  border-radius: 5px;
-}
-
-/* Academic accents: numbered citations */
+/* -------------------------
+   Footnotes / citations / references
+   ------------------------- */
+.footnotes { margin-top: 1.5rem; font-size: .92rem; color: var(--muted); }
 .citation {
-  font-size: 0.85rem;
-  vertical-align: super;
-  color: #ffd479;
-  margin-left: 0.25rem;
+  background: linear-gradient(90deg, rgba(183,121,31,0.06), transparent);
+  color: var(--gold);
+  padding: 0 .25rem;
+  border-radius: 3px;
+  font-weight: 700;
 }
+
+/* -------------------------
+   Utility components
+   ------------------------- */
+.kv {
+  display:flex;
+  gap:.6rem;
+  align-items:flex-start;
+  margin-bottom:.6rem;
+}
+.kv .k { color: var(--muted); min-width: 120px; font-weight:600; }
+.kv .v { color: var(--ink); }
+
+/* subtle separators */
+.hr-faint {
+  height: 1px;
+  background: var(--rule);
+  margin: 1.25rem 0;
+  border-radius: 1px;
+}
+
+/* -------------------------
+   Footer
+   ------------------------- */
+.site-footer {
+  margin-top: 3rem;
+  padding: 1.5rem 0 3rem 0;
+  border-top: 1px solid var(--rule);
+  background: linear-gradient(180deg, rgba(30,77,139,0.01), transparent);
+  color: var(--muted);
+  text-align:center;
+  font-size: .95rem;
+}
+
+/* -------------------------
+   Accessibility / responsive
+   ------------------------- */
+@media (max-width: 900px) {
+  .site-header .header-inner { flex-direction: column; align-items:flex-start; gap: .75rem; }
+  .author-card { width: 100%; }
+  .container { padding: 0 1rem; }
+  h1 { font-size: 1.6rem; }
+  .page-hero { padding: 1.25rem; }
+}
+
+/* Print styles */
+@media print {
+  body { color: #000; background: #fff; }
+  .site-header, .site-footer, .site-nav { display: none; }
+  .container { margin: 0; padding: 0; }
+  pre, code { background: #f3f3f3; color: #000; }
+}
+
+/* -------------------------
+   Usage notes (for author):
+   - Use .theorem / .definition / .proof blocks in your Markdown includes.
+   - Wrap display math in a block with class "math-display" if not using MathJax default.
+   - Publication entries: .publication-list > .pub
+   ------------------------- */
