@@ -1,505 +1,588 @@
-<!-- _includes/header.html -->
-<header class="fontaine-header">
-  <!-- Water background effect -->
-  <div class="water-background"></div>
-  <div class="water-bubbles" id="bubbles"></div>
-  
-  <div class="header-container">
-    <!-- Logo + Title with Fontaine elegance -->
-    <div class="logo-title">
-      <div class="logo-frame">
-        <img src="https://avatars.githubusercontent.com/u/228621047?s=48&v=4" alt="Broke Consortium Logo" class="site-logo">
-        <div class="logo-water-ripple"></div>
-      </div>
-      <div class="site-info">
-        <h1 class="site-title"><a href="{{ "/" | relative_url }}">Broke Consortium of Mathematical Research</a></h1>
-        <p class="site-description">Court of Fontaine Institute of Advanced Hydro-Mathematics</p>
-      </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fontaine Institute - Broke Consortium</title>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Crimson Pro', serif;
+            background: linear-gradient(135deg, #0a1830 0%, #142850 100%);
+            color: #f5f7ff;
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* Header Styles */
+        .fontaine-header {
+            background: linear-gradient(135deg, rgba(10, 24, 48, 0.9) 0%, rgba(20, 40, 80, 0.9) 100%);
+            border-bottom: 3px solid #1a5db0;
+            padding: 1.2rem 2.5rem;
+            font-family: 'Crimson Pro', serif;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: visible;
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            z-index: 1000;
+        }
+        
+        /* Water background effect */
+        .water-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                linear-gradient(60deg, 
+                    transparent 40%, 
+                    rgba(26, 93, 176, 0.2) 50%, 
+                    transparent 60%),
+                radial-gradient(circle at 20% 70%, rgba(160, 196, 255, 0.1) 0%, transparent 20%),
+                radial-gradient(circle at 80% 30%, rgba(160, 196, 255, 0.1) 0%, transparent 20%);
+            background-size: 200% 200%, 300px 300px, 400px 400px;
+            animation: waterShimmer 15s infinite linear;
+            z-index: 1;
+            border-radius: 8px;
+        }
+        
+        @keyframes waterShimmer {
+            0% { background-position: 100% 100%, 20% 70%, 80% 30%; }
+            100% { background-position: 0% 0%, 320px 370px, 880px 130px; }
+        }
+        
+        /* Header container */
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 3;
+        }
+        
+        /* Logo and title styling */
+        .logo-title {
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+        
+        .logo-frame {
+            position: relative;
+            margin-right: 1.2rem;
+            border: 2px solid #d4af37;
+            border-radius: 50%;
+            padding: 4px;
+            background: rgba(10, 24, 48, 0.85);
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+        }
+        
+        .site-logo {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: block;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .logo-water-ripple {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            border: 2px solid #a0c4ff;
+            opacity: 0.6;
+            animation: waterRipple 3s infinite linear;
+        }
+        
+        @keyframes waterRipple {
+            0% { width: 60px; height: 60px; opacity: 0.8; }
+            100% { width: 80px; height: 80px; opacity: 0; }
+        }
+        
+        .site-title {
+            margin: 0;
+            font-size: 1.9rem;
+            font-weight: 700;
+            color: #f5f7ff;
+            letter-spacing: 0.5px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .site-title a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+        
+        .site-title a:hover {
+            color: #d4af37;
+        }
+        
+        .site-description {
+            margin: 0.3rem 0 0 0;
+            font-size: 1.05rem;
+            color: #a0c4ff;
+            font-style: italic;
+            letter-spacing: 0.5px;
+        }
+        
+        /* Fedora-like navigation */
+        .site-nav {
+            position: relative;
+        }
+        
+        .site-nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2.5rem;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .nav-item {
+            position: relative;
+        }
+        
+        .site-nav > ul > li > a {
+            text-decoration: none;
+            color: #e6e9f0;
+            font-weight: 600;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            padding: 0.6rem 0.8rem;
+            position: relative;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        
+        .site-nav > ul > li > a:hover {
+            background: rgba(26, 93, 176, 0.2);
+            color: #d4af37;
+        }
+        
+        .nav-icon {
+            margin-right: 0.5rem;
+            font-size: 1.2rem;
+        }
+        
+        .dropdown-arrow {
+            margin-left: 0.3rem;
+            font-size: 0.8rem;
+            transition: transform 0.3s ease;
+        }
+        
+        /* Fedora-style dropdown panels */
+        .dropdown-panel {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: rgba(10, 24, 48, 0.98);
+            backdrop-filter: blur(10px);
+            width: 600px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            border: 1px solid #1a5db0;
+            border-top: 3px solid #d4af37;
+            border-radius: 0 0 8px 8px;
+            overflow: hidden;
+            z-index: 1000;
+            animation: fadeIn 0.3s ease;
+            padding: 1.5rem;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .dropdown-panel h3 {
+            color: #d4af37;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+            border-bottom: 1px solid #1a5db0;
+            padding-bottom: 0.5rem;
+        }
+        
+        .panel-content {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+        
+        .panel-section {
+            margin-bottom: 1rem;
+        }
+        
+        .panel-section h4 {
+            color: #a0c4ff;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .panel-section h4 i {
+            margin-right: 8px;
+        }
+        
+        .panel-links {
+            list-style: none;
+        }
+        
+        .panel-links li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .panel-links a {
+            color: #e6e9f0;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: all 0.2s ease;
+            display: block;
+            padding: 0.5rem 0.8rem;
+            border-radius: 4px;
+        }
+        
+        .panel-links a:hover {
+            color: #d4af37;
+            background: rgba(26, 93, 176, 0.2);
+            transform: translateX(5px);
+        }
+        
+        .nav-item:hover .dropdown-panel {
+            display: block;
+        }
+        
+        .nav-item:hover .dropdown-arrow {
+            transform: rotate(180deg);
+        }
+        
+        /* Water wave effect at bottom */
+        .water-wave {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, 
+                transparent, 
+                #1a5db0, 
+                #a0c4ff, 
+                #1a5db0, 
+                transparent);
+            opacity: 0.8;
+            animation: waterFlow 6s infinite linear;
+            border-radius: 0 0 8px 8px;
+        }
+        
+        @keyframes waterFlow {
+            0% { background-position: -1000px 0; }
+            100% { background-position: 1000px 0; }
+        }
+        
+        /* Demo content */
+        .demo-content {
+            background: rgba(10, 24, 48, 0.7);
+            padding: 2rem;
+            border-radius: 8px;
+            margin-top: 2rem;
+            width: 100%;
+            max-width: 1000px;
+            text-align: center;
+            border: 1px solid #1a5db0;
+        }
+        
+        .demo-content h2 {
+            color: #d4af37;
+            margin-bottom: 1rem;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .demo-content p {
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            color: #e6e9f0;
+        }
+        
+        /* Responsive design */
+        @media (max-width: 1000px) {
+            .fontaine-header {
+                padding: 1rem 1.5rem;
+            }
+            
+            .header-container {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1.2rem;
+            }
+            
+            .site-nav ul {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .site-title {
+                font-size: 1.6rem;
+            }
+            
+            .dropdown-panel {
+                width: 100%;
+                position: static;
+                display: none;
+                margin-top: 0.5rem;
+            }
+            
+            .nav-item:hover .dropdown-panel {
+                display: block;
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .logo-title {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .logo-frame {
+                margin-bottom: 0.8rem;
+            }
+            
+            .site-title {
+                font-size: 1.4rem;
+            }
+            
+            .site-description {
+                font-size: 0.95rem;
+            }
+            
+            .panel-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="fontaine-header">
+            <!-- Water background effect -->
+            <div class="water-background"></div>
+            
+            <div class="header-container">
+                <!-- Logo + Title with Fontaine elegance -->
+                <div class="logo-title">
+                    <div class="logo-frame">
+                        <img src="https://avatars.githubusercontent.com/u/228621047?s=48&v=4" alt="Broke Consortium Logo" class="site-logo">
+                        <div class="logo-water-ripple"></div>
+                    </div>
+                    <div class="site-info">
+                        <h1 class="site-title"><a href="#">Broke Consortium of Mathematical Research</a></h1>
+                        <p class="site-description">Court of Fontaine Institute of Advanced Hydro-Mathematics</p>
+                    </div>
+                </div>
+
+                <!-- Fedora-like navigation with dropdown panels -->
+                <nav class="site-nav">
+                    <ul>
+                        <li class="nav-item">
+                            <a href="#"><span class="nav-icon">🏠</span>Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#"><span class="nav-icon">🔬</span>Research <span class="dropdown-arrow">▼</span></a>
+                            <div class="dropdown-panel">
+                                <h3>Research Divisions</h3>
+                                <div class="panel-content">
+                                    <div class="panel-section">
+                                        <h4><i class="icon">💧</i> Hydro-Mathematics</h4>
+                                        <ul class="panel-links">
+                                            <li><a href="#">Fluid Dynamics</a></li>
+                                            <li><a href="#">Wave Theory</a></li>
+                                            <li><a href="#">Aquatic Algorithms</a></li>
+                                            <li><a href="#">Hydro-Symbolism</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="panel-section">
+                                        <h4><i class="icon">⚡</i> Energy Studies</h4>
+                                        <ul class="panel-links">
+                                            <li><a href="#">Hydro Power</a></li>
+                                            <li><a href="#">Tidal Energy</a></li>
+                                            <li><a href="#">Current Optimization</a></li>
+                                            <li><a href="#">Fontaine Energy Law</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="panel-section">
+                                        <h4><i class="icon">📜</i> Fontaine's Laws</h4>
+                                        <ul class="panel-links">
+                                            <li><a href="#">Aquatic Principles</a></li>
+                                            <li><a href="#">Mathematical Proofs</a></li>
+                                            <li><a href="#">Historical Context</a></li>
+                                            <li><a href="#">Legal Applications</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="panel-section">
+                                        <h4><i class="icon">💰</i> Research Grants</h4>
+                                        <ul class="panel-links">
+                                            <li><a href="#">Funding Opportunities</a></li>
+                                            <li><a href="#">Application Process</a></li>
+                                            <li><a href="#">Current Projects</a></li>
+                                            <li><a href="#">Grant Writing</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#"><span class="nav-icon">📚</span>Publications <span class="dropdown-arrow">▼</span></a>
+                            <div class="dropdown-panel">
+                                <h3>Publications & Archives</h3>
+                                <div class="panel-content">
+                                    <div class="panel-section">
+                                        <h4><i class="icon">📓</i> Academic Journals</h4>
+                                        <ul class="panel-links">
+                                            <li><a href="#">Journal of Hydro-Mathematics</a></li>
+                                            <li><a href="#">Fontaine Review</a></li>
+                                            <li><a href="#">Advanced Mathematics</a></li>
+                                            <li><a href="#">Aquatic Studies Quarterly</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="panel-section">
+                                        <h4><i class="icon">🎤</i> Conference Proceedings</h4>
+                                        <ul class="panel-links">
+                                            <li><a href="#">Annual Symposium</a></li>
+                                            <li><a href="#">International Conference</a></li>
+                                            <li><a href="#">Student Presentations</a></li>
+                                            <li><a href="#">Keynote Addresses</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="panel-section">
+                                        <h4><i class="icon">📅</i> Annual Review</h4>
+                                        <ul class="panel-links">
+                                            <li><a href="#">2023 Research Highlights</a></li>
+                                            <li><a href="#">Archives</a></li>
+                                            <li><a href="#">Notable Papers</a></li>
+                                            <li><a href="#">Citations Index</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="panel-section">
+                                        <h4><i class="icon">✍️</i> For Researchers</h4>
+                                        <ul class="panel-links">
+                                            <li><a href="#">Submission Guidelines</a></li>
+                                            <li><a href="#">Publication Ethics</a></li>
+                                            <li><a href="#">Editorial Board</a></li>
+                                            <li><a href="#">Review Process</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#"><span class="nav-icon">👥</span>Members <span class="dropdown-arrow">▼</span></a>
+                            <div class="dropdown-panel">
+                                <h3>Members & Community</h3>
+                                <div class="panel-content">
+                                    <div class="panel-section">
+                                        <h4><i class="icon">👨‍🏫</i> Faculty</h4>
+                                        <ul class="panel-links">
+                                            <li><a href="#">Professors</a></li>
+                                            <li><a href="#">Researchers</a></li>
+                                            <li><a href="#">Visiting Scholars</a></li>
+                                            <li><a href="#">Department Chairs</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="panel-section">
+                                        <h4><i class="icon">🎓</i> Students</h4>
+                                        <ul class="panel-links">
+                                            <li><a href="#">Graduate Programs</a></li>
+                                            <li><a href="#">Doctoral Candidates</a></li>
+                                            <li><a href="#">Student Resources</a></li>
+                                            <li><a href="#">Research Assistants</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="panel-section">
+                                        <h4><i class="icon">🎉</i> Alumni</h4>
+                                        <ul class="panel-links">
+                                            <li><a href="#">Alumni Network</a></li>
+                                            <li><a href="#">Distinguished Graduates</a></li>
+                                            <li><a href="#">Reunion Events</a></li>
+                                            <li><a href="#">Alumni Publications</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="panel-section">
+                                        <h4><i class="icon">🤝</i> Join Us</h4>
+                                        <ul class="panel-links">
+                                            <li><a href="#">Careers</a></li>
+                                            <li><a href="#">Application Process</a></li>
+                                            <li><a href="#">Benefits</a></li>
+                                            <li><a href="#">Life at Fontaine</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            
+            <!-- Water wave accent at bottom -->
+            <div class="water-wave"></div>
+        </header>
+
+        <div class="demo-content">
+            <h2>Court of Fontaine Institute of Advanced Hydro-Mathematics</h2>
+            <p>Welcome to the Broke Consortium of Mathematical Research, where we explore the deepest mysteries of hydro-mathematics and Fontaine's ancient principles. Our institute combines cutting-edge research with the elegance of mathematical theory.</p>
+            <p>Hover over the navigation items above to explore our research divisions, publications, and member community.</p>
+        </div>
     </div>
 
-    <!-- Fedora-like navigation with dropdown panels -->
-    <nav class="site-nav">
-      <ul>
-        <li class="nav-item">
-          <a href="{{ "/" | relative_url }}"><span class="nav-icon">🏠</span>Home</a>
-        </li>
-        <li class="nav-item">
-          <a href="{{ "/research/" | relative_url }}"><span class="nav-icon">🔬</span>Research <span class="dropdown-arrow">▼</span></a>
-          <div class="dropdown-panel">
-            <h3>Research Divisions</h3>
-            <div class="panel-content">
-              <div class="panel-section">
-                <h4>Hydro-Mathematics</h4>
-                <ul class="panel-links">
-                  <li><a href="{{ "/research/fluid-dynamics/" | relative_url }}">Fluid Dynamics</a></li>
-                  <li><a href="{{ "/research/wave-theory/" | relative_url }}">Wave Theory</a></li>
-                  <li><a href="{{ "/research/aquatic-algorithms/" | relative_url }}">Aquatic Algorithms</a></li>
-                </ul>
-              </div>
-              <div class="panel-section">
-                <h4>Energy Studies</h4>
-                <ul class="panel-links">
-                  <li><a href="{{ "/research/hydro-power/" | relative_url }}">Hydro Power</a></li>
-                  <li><a href="{{ "/research/tidal-energy/" | relative_url }}">Tidal Energy</a></li>
-                  <li><a href="{{ "/research/current-optimization/" | relative_url }}">Current Optimization</a></li>
-                </ul>
-              </div>
-              <div class="panel-section">
-                <h4>Fontaine's Laws</h4>
-                <ul class="panel-links">
-                  <li><a href="{{ "/research/aquatic-principles/" | relative_url }}">Aquatic Principles</a></li>
-                  <li><a href="{{ "/research/mathematical-proofs/" | relative_url }}">Mathematical Proofs</a></li>
-                  <li><a href="{{ "/research/historical-context/" | relative_url }}">Historical Context</a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </li>
-        <li class="nav-item">
-          <a href="{{ "/publications/" | relative_url }}"><span class="nav-icon">📚</span>Publications <span class="dropdown-arrow">▼</span></a>
-          <div class="dropdown-panel">
-            <h3>Publications & Archives</h3>
-            <div class="panel-content">
-              <div class="panel-section">
-                <h4>Academic Journals</h4>
-                <ul class="panel-links">
-                  <li><a href="{{ "/publications/hydro-mathematics-journal/" | relative_url }}">Journal of Hydro-Mathematics</a></li>
-                  <li><a href="{{ "/publications/fontaine-review/" | relative_url }}">Fontaine Review</a></li>
-                  <li><a href="{{ "/publications/advanced-mathematics/" | relative_url }}">Advanced Mathematics</a></li>
-                </ul>
-              </div>
-              <div class="panel-section">
-                <h4>Conference Proceedings</h4>
-                <ul class="panel-links">
-                  <li><a href="{{ "/publications/annual-symposium/" | relative_url }}">Annual Symposium</a></li>
-                  <li><a href="{{ "/publications/international-conference/" | relative_url }}">International Conference</a></li>
-                  <li><a href="{{ "/publications/student-presentations/" | relative_url }}">Student Presentations</a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </li>
-        <li class="nav-item">
-          <a href="{{ "/members/" | relative_url }}"><span class="nav-icon">👥</span>Members <span class="dropdown-arrow">▼</span></a>
-          <div class="dropdown-panel">
-            <h3>Members & Community</h3>
-            <div class="panel-content">
-              <div class="panel-section">
-                <h4>Faculty</h4>
-                <ul class="panel-links">
-                  <li><a href="{{ "/members/professors/" | relative_url }}">Professors</a></li>
-                  <li><a href="{{ "/members/researchers/" | relative_url }}">Researchers</a></li>
-                  <li><a href="{{ "/members/visiting-scholars/" | relative_url }}">Visiting Scholars</a></li>
-                </ul>
-              </div>
-              <div class="panel-section">
-                <h4>Students</h4>
-                <ul class="panel-links">
-                  <li><a href="{{ "/members/graduate-programs/" | relative_url }}">Graduate Programs</a></li>
-                  <li><a href="{{ "/members/doctoral-candidates/" | relative_url }}">Doctoral Candidates</a></li>
-                  <li><a href="{{ "/members/student-resources/" | relative_url }}">Student Resources</a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </li>
-      </ul>
-    </nav>
-  </div>
-  
-  <!-- Water wave accent at bottom -->
-  <div class="water-wave"></div>
-</header>
-
-<style>
-/* Fontaine-inspired color scheme */
-:root {
-  --fontaine-deep-blue: #0a1830;
-  --fontaine-bright-blue: #1a5db0;
-  --fontaine-light-blue: #a0c4ff;
-  --fontaine-gold: #d4af37;
-  --fontaine-silver: #e6e9f0;
-  --fontaine-white: #f5f7ff;
-  --fontaine-translucent: rgba(10, 24, 48, 0.85);
-}
-
-/* Header with water background */
-.fontaine-header {
-  background: linear-gradient(135deg, var(--fontaine-deep-blue) 0%, #142850 100%);
-  border-bottom: 3px solid var(--fontaine-bright-blue);
-  padding: 1.2rem 2.5rem;
-  font-family: 'Crimson Pro', 'Times New Roman', serif;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-  position: relative;
-  overflow: hidden;
-  width: 100%;
-}
-
-/* Water background effect */
-.water-background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: 
-    linear-gradient(60deg, 
-      transparent 40%, 
-      rgba(26, 93, 176, 0.2) 50%, 
-      transparent 60%),
-    radial-gradient(circle at 20% 70%, rgba(160, 196, 255, 0.1) 0%, transparent 20%),
-    radial-gradient(circle at 80% 30%, rgba(160, 196, 255, 0.1) 0%, transparent 20%);
-  background-size: 200% 200%, 300px 300px, 400px 400px;
-  animation: waterShimmer 15s infinite linear;
-  z-index: 1;
-}
-
-@keyframes waterShimmer {
-  0% { background-position: 100% 100%, 20% 70%, 80% 30%; }
-  100% { background-position: 0% 0%, 320px 370px, 880px 130px; }
-}
-
-/* Water bubbles */
-.water-bubbles {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  z-index: 2;
-  pointer-events: none;
-}
-
-.bubble {
-  position: absolute;
-  background: rgba(160, 196, 255, 0.15);
-  border-radius: 50%;
-  animation: floatUp 15s infinite ease-in-out;
-}
-
-@keyframes floatUp {
-  0% { 
-    transform: translateY(100%) scale(0.5); 
-    opacity: 0;
-  }
-  10% { opacity: 0.4; }
-  90% { opacity: 0.3; }
-  100% { 
-    transform: translateY(-100%) scale(1.2); 
-    opacity: 0;
-  }
-}
-
-/* Header container */
-.header-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  max-width: 1400px;
-  margin: 0 auto;
-  position: relative;
-  z-index: 3;
-}
-
-/* Logo and title styling */
-.logo-title {
-  display: flex;
-  align-items: center;
-  position: relative;
-}
-
-.logo-frame {
-  position: relative;
-  margin-right: 1.2rem;
-  border: 2px solid var(--fontaine-gold);
-  border-radius: 50%;
-  padding: 4px;
-  background: var(--fontaine-translucent);
-  box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
-}
-
-.site-logo {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  display: block;
-  position: relative;
-  z-index: 2;
-}
-
-.logo-water-ripple {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 70px;
-  height: 70px;
-  border-radius: 50%;
-  border: 2px solid var(--fontaine-light-blue);
-  opacity: 0.6;
-  animation: waterRipple 3s infinite linear;
-}
-
-@keyframes waterRipple {
-  0% { width: 60px; height: 60px; opacity: 0.8; }
-  100% { width: 80px; height: 80px; opacity: 0; }
-}
-
-.site-title {
-  margin: 0;
-  font-size: 1.9rem;
-  font-weight: 700;
-  color: var(--fontaine-white);
-  letter-spacing: 0.5px;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
-}
-
-.site-title a {
-  text-decoration: none;
-  color: inherit;
-  transition: color 0.3s ease;
-}
-
-.site-title a:hover {
-  color: var(--fontaine-gold);
-}
-
-.site-description {
-  margin: 0.3rem 0 0 0;
-  font-size: 1.05rem;
-  color: var(--fontaine-light-blue);
-  font-style: italic;
-  letter-spacing: 0.5px;
-}
-
-/* Fedora-like navigation */
-.site-nav ul {
-  list-style: none;
-  display: flex;
-  gap: 2.5rem;
-  margin: 0;
-  padding: 0;
-}
-
-.nav-item {
-  position: relative;
-}
-
-.site-nav > ul > li > a {
-  text-decoration: none;
-  color: var(--fontaine-silver);
-  font-weight: 600;
-  font-size: 1.1rem;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  transition: all 0.3s ease;
-  padding: 0.6rem 0;
-  position: relative;
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-}
-
-.nav-icon {
-  margin-right: 0.5rem;
-  font-size: 1.2rem;
-}
-
-.dropdown-arrow {
-  margin-left: 0.3rem;
-  font-size: 0.8rem;
-  transition: transform 0.3s ease;
-}
-
-/* Fedora-style dropdown panels */
-.dropdown-panel {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background: rgba(10, 24, 48, 0.98);
-  backdrop-filter: blur(10px);
-  width: 600px;
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-  border: 1px solid var(--fontaine-bright-blue);
-  border-top: 3px solid var(--fontaine-gold);
-  border-radius: 0 0 8px 8px;
-  overflow: hidden;
-  z-index: 1000;
-  animation: fadeIn 0.3s ease;
-  padding: 1.5rem;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.dropdown-panel h3 {
-  color: var(--fontaine-gold);
-  margin-bottom: 1rem;
-  font-size: 1.3rem;
-  border-bottom: 1px solid var(--fontaine-bright-blue);
-  padding-bottom: 0.5rem;
-}
-
-.panel-content {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.5rem;
-}
-
-.panel-section {
-  margin-bottom: 1rem;
-}
-
-.panel-section h4 {
-  color: var(--fontaine-light-blue);
-  margin-bottom: 0.5rem;
-  font-size: 1.1rem;
-}
-
-.panel-links {
-  list-style: none;
-}
-
-.panel-links li {
-  margin-bottom: 0.3rem;
-}
-
-.panel-links a {
-  color: var(--fontaine-silver);
-  text-decoration: none;
-  font-size: 1rem;
-  transition: color 0.2s ease;
-  display: block;
-  padding: 0.3rem 0;
-}
-
-.panel-links a:hover {
-  color: var(--fontaine-gold);
-}
-
-.nav-item:hover .dropdown-panel {
-  display: block;
-}
-
-.nav-item:hover .dropdown-arrow {
-  transform: rotate(180deg);
-}
-
-/* Water wave effect at bottom */
-.water-wave {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 4px;
-  background: linear-gradient(90deg, 
-    transparent, 
-    var(--fontaine-bright-blue), 
-    var(--fontaine-light-blue), 
-    var(--fontaine-bright-blue), 
-    transparent);
-  opacity: 0.8;
-  animation: waterFlow 6s infinite linear;
-}
-
-@keyframes waterFlow {
-  0% { background-position: -1000px 0; }
-  100% { background-position: 1000px 0; }
-}
-
-/* Responsive design */
-@media (max-width: 1000px) {
-  .fontaine-header {
-    padding: 1rem 1.5rem;
-  }
-  
-  .header-container {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1.2rem;
-  }
-  
-  .site-nav ul {
-    flex-direction: column;
-    gap: 1rem;
-  }
-  
-  .site-title {
-    font-size: 1.6rem;
-  }
-  
-  .dropdown-panel {
-    width: 100%;
-    position: static;
-    display: none;
-    margin-top: 0.5rem;
-  }
-  
-  .nav-item:hover .dropdown-panel {
-    display: block;
-  }
-}
-
-@media (max-width: 600px) {
-  .logo-title {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  
-  .logo-frame {
-    margin-bottom: 0.8rem;
-  }
-  
-  .site-title {
-    font-size: 1.4rem;
-  }
-  
-  .site-description {
-    font-size: 0.95rem;
-  }
-  
-  .panel-content {
-    grid-template-columns: 1fr;
-  }
-}
-</style>
-
-<script>
-// Create floating bubbles for the water effect
-function createBubbles() {
-  const bubblesContainer = document.getElementById('bubbles');
-  const header = document.querySelector('.fontaine-header');
-  const headerWidth = header.offsetWidth;
-  const headerHeight = header.offsetHeight;
-  
-  // Create multiple bubbles
-  for (let i = 0; i < 15; i++) {
-    const bubble = document.createElement('div');
-    bubble.classList.add('bubble');
-    
-    // Random size between 3 and 8 pixels
-    const size = Math.random() * 5 + 3;
-    bubble.style.width = `${size}px`;
-    bubble.style.height = `${size}px`;
-    
-    // Random position
-    bubble.style.left = `${Math.random() * headerWidth}px`;
-    
-    // Random delay and duration
-    const delay = Math.random() * 15;
-    const duration = Math.random() * 10 + 10;
-    bubble.style.animationDelay = `${delay}s`;
-    bubble.style.animationDuration = `${duration}s`;
-    
-    bubblesContainer.appendChild(bubble);
-  }
-}
-
-// Initialize the header when the page loads
-document.addEventListener('DOMContentLoaded', function() {
-  createBubbles();
-});
-</script>
+    <script>
+        // Handle dropdown behavior on mobile
+        document.addEventListener('DOMContentLoaded', function() {
+            const navItems = document.querySelectorAll('.nav-item');
+            
+            // Add click event for mobile devices
+            if (window.innerWidth <= 1000) {
+                navItems.forEach(item => {
+                    item.addEventListener('click', function(e) {
+                        if (e.target.tagName === 'A') {
+                            const panel = this.querySelector('.dropdown-panel');
+                            if (panel) {
+                                panel.style.display = panel.style.display === 'block' ? 'none' : 'block';
+                                e.preventDefault();
+                            }
+                        }
+                    });
+                });
+            }
+        });
+    </script>
+</body>
+</html>
