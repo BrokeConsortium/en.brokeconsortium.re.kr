@@ -10,6 +10,10 @@ author:
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-picture-tag
+  - jekyll-include-cache
+  - jekyll-paginate-v2
 
 exclude:
   - Gemfile
