@@ -7,6 +7,7 @@
   <meta name="description" content="{{ page.description | default: site.description }}">
   {% seo %}
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
   <style>
     /* Reset body styles to ensure proper contrast and left alignment */
     body {
@@ -14,9 +15,9 @@
       color: #333333;
       margin: 0;
       padding: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-family: 'Crimson Pro', serif;
       line-height: 1.6;
-      text-align: left; /* Force left alignment for all text */
+      text-align: left;
     }
     
     /* Main content area - explicitly left aligned */
@@ -56,10 +57,21 @@
       text-align: center;
       padding: 1.5rem 0;
       margin-top: 2rem;
+      font-family: 'Crimson Pro', serif;
     }
   </style>
 </head>
-<body>
+<body class="watermark">
+  <!-- Fontaine Loading Animation -->
+  <div id="fontaine-loader">
+    <div class="loader-content">
+      <div class="loader-logo"></div>
+      <h2>Court of Fontaine Institute</h2>
+      <p>Initializing Hydro-Mathematical Systems</p>
+      <div class="water-fill"></div>
+    </div>
+  </div>
+
   <!-- Header -->
   {% include header.html %}
 
@@ -72,5 +84,20 @@
   <footer>
     &copy; {{ "now" | date: "%Y" }} Broke Consortium of Mathematical Research
   </footer>
+
+  <script>
+    // Remove loading animation when page is fully loaded
+    window.addEventListener('load', function() {
+      setTimeout(function() {
+        const loader = document.getElementById('fontaine-loader');
+        if (loader) {
+          loader.style.opacity = '0';
+          setTimeout(function() {
+            loader.style.display = 'none';
+          }, 500);
+        }
+      }, 1500);
+    });
+  </script>
 </body>
 </html>
