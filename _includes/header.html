@@ -141,8 +141,9 @@
 </header>
 
 <style>
-/* Fontaine-inspired color scheme */
-:root {
+/* Scoped CSS for header only */
+.fontaine-header {
+  /* Fontaine-inspired color scheme */
   --fontaine-deep-blue: #0a1830;
   --fontaine-bright-blue: #1a5db0;
   --fontaine-light-blue: #a0c4ff;
@@ -150,10 +151,7 @@
   --fontaine-silver: #e6e9f0;
   --fontaine-white: #f5f7ff;
   --fontaine-translucent: rgba(10, 24, 48, 0.85);
-}
-
-/* Header with water background - full width */
-.fontaine-header {
+  
   background: linear-gradient(135deg, var(--fontaine-deep-blue) 0%, #142850 100%);
   border-bottom: 3px solid var(--fontaine-bright-blue);
   padding: 1.2rem 0;
@@ -166,7 +164,7 @@
 }
 
 /* Water background effect */
-.water-background {
+.fontaine-header .water-background {
   position: absolute;
   top: 0;
   left: 0;
@@ -190,7 +188,7 @@
 }
 
 /* Header content - centered but full width background */
-.header-content {
+.fontaine-header .header-content {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -202,13 +200,13 @@
 }
 
 /* Logo and title styling */
-.logo-title {
+.fontaine-header .logo-title {
   display: flex;
   align-items: center;
   position: relative;
 }
 
-.logo-frame {
+.fontaine-header .logo-frame {
   position: relative;
   margin-right: 1.2rem;
   border: 2px solid var(--fontaine-gold);
@@ -218,7 +216,7 @@
   box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
 }
 
-.site-logo {
+.fontaine-header .site-logo {
   width: 60px;
   height: 60px;
   border-radius: 50%;
@@ -227,7 +225,7 @@
   z-index: 2;
 }
 
-.logo-water-ripple {
+.fontaine-header .logo-water-ripple {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -245,7 +243,7 @@
   100% { width: 80px; height: 80px; opacity: 0; }
 }
 
-.site-title {
+.fontaine-header .site-title {
   margin: 0;
   font-size: 1.9rem;
   font-weight: 700;
@@ -254,17 +252,17 @@
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
 }
 
-.site-title a {
+.fontaine-header .site-title a {
   text-decoration: none;
   color: inherit;
   transition: color 0.3s ease;
 }
 
-.site-title a:hover {
+.fontaine-header .site-title a:hover {
   color: var(--fontaine-gold);
 }
 
-.site-description {
+.fontaine-header .site-description {
   margin: 0.3rem 0 0 0;
   font-size: 1.05rem;
   color: var(--fontaine-light-blue);
@@ -273,11 +271,11 @@
 }
 
 /* Fedora-like navigation */
-.site-nav {
+.fontaine-header .site-nav {
   position: relative;
 }
 
-.site-nav ul {
+.fontaine-header .site-nav ul {
   list-style: none;
   display: flex;
   gap: 2.5rem;
@@ -285,11 +283,11 @@
   padding: 0;
 }
 
-.nav-item {
+.fontaine-header .nav-item {
   position: static;
 }
 
-.site-nav > ul > li > a {
+.fontaine-header .site-nav > ul > li > a {
   text-decoration: none;
   color: var(--fontaine-silver);
   font-weight: 600;
@@ -305,24 +303,24 @@
   border-radius: 4px;
 }
 
-.site-nav > ul > li > a:hover {
+.fontaine-header .site-nav > ul > li > a:hover {
   background: rgba(26, 93, 176, 0.2);
   color: var(--fontaine-gold);
 }
 
-.nav-icon {
+.fontaine-header .nav-icon {
   margin-right: 0.5rem;
   font-size: 1.2rem;
 }
 
-.dropdown-arrow {
+.fontaine-header .dropdown-arrow {
   margin-left: 0.3rem;
   font-size: 0.8rem;
   transition: transform 0.3s ease;
 }
 
 /* Fedora-style dropdown panels - full width */
-.dropdown-panel {
+.fontaine-header .dropdown-panel {
   display: none;
   position: absolute;
   top: 100%;
@@ -343,13 +341,13 @@
   to { opacity: 1; transform: translateY(0); }
 }
 
-.panel-container {
+.fontaine-header .panel-container {
   max-width: 1400px;
   margin: 0 auto;
   padding: 1.5rem 2.5rem;
 }
 
-.dropdown-panel h3 {
+.fontaine-header .dropdown-panel h3 {
   color: var(--fontaine-gold);
   margin-bottom: 1rem;
   font-size: 1.3rem;
@@ -357,17 +355,17 @@
   padding-bottom: 0.5rem;
 }
 
-.panel-content {
+.fontaine-header .panel-content {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 1.5rem;
 }
 
-.panel-section {
+.fontaine-header .panel-section {
   margin-bottom: 1rem;
 }
 
-.panel-section h4 {
+.fontaine-header .panel-section h4 {
   color: var(--fontaine-light-blue);
   margin-bottom: 0.5rem;
   font-size: 1.1rem;
@@ -375,15 +373,15 @@
   align-items: center;
 }
 
-.panel-links {
+.fontaine-header .panel-links {
   list-style: none;
 }
 
-.panel-links li {
+.fontaine-header .panel-links li {
   margin-bottom: 0.5rem;
 }
 
-.panel-links a {
+.fontaine-header .panel-links a {
   color: var(--fontaine-silver);
   text-decoration: none;
   font-size: 1rem;
@@ -393,22 +391,22 @@
   border-radius: 4px;
 }
 
-.panel-links a:hover {
+.fontaine-header .panel-links a:hover {
   color: var(--fontaine-gold);
   background: rgba(26, 93, 176, 0.2);
   transform: translateX(5px);
 }
 
-.nav-item:hover .dropdown-panel {
+.fontaine-header .nav-item:hover .dropdown-panel {
   display: block;
 }
 
-.nav-item:hover .dropdown-arrow {
+.fontaine-header .nav-item:hover .dropdown-arrow {
   transform: rotate(180deg);
 }
 
 /* Water wave effect at bottom */
-.water-wave {
+.fontaine-header .water-wave {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -435,58 +433,58 @@
     padding: 1rem 0;
   }
   
-  .header-content {
+  .fontaine-header .header-content {
     flex-direction: column;
     align-items: flex-start;
     gap: 1.2rem;
     padding: 0 1.5rem;
   }
   
-  .site-nav ul {
+  .fontaine-header .site-nav ul {
     flex-direction: column;
     gap: 1rem;
     width: 100%;
   }
   
-  .site-title {
+  .fontaine-header .site-title {
     font-size: 1.6rem;
   }
   
-  .dropdown-panel {
+  .fontaine-header .dropdown-panel {
     position: static;
     display: none;
     margin-top: 0.5rem;
     width: 100%;
   }
   
-  .panel-container {
+  .fontaine-header .panel-container {
     padding: 1rem;
   }
   
-  .nav-item:hover .dropdown-panel {
+  .fontaine-header .nav-item:hover .dropdown-panel {
     display: block;
   }
 }
 
 @media (max-width: 600px) {
-  .logo-title {
+  .fontaine-header .logo-title {
     flex-direction: column;
     align-items: flex-start;
   }
   
-  .logo-frame {
+  .fontaine-header .logo-frame {
     margin-bottom: 0.8rem;
   }
   
-  .site-title {
+  .fontaine-header .site-title {
     font-size: 1.4rem;
   }
   
-  .site-description {
+  .fontaine-header .site-description {
     font-size: 0.95rem;
   }
   
-  .panel-content {
+  .fontaine-header .panel-content {
     grid-template-columns: 1fr;
   }
 }
@@ -495,7 +493,7 @@
 <script>
 // Handle dropdown behavior on mobile
 document.addEventListener('DOMContentLoaded', function() {
-  const navItems = document.querySelectorAll('.nav-item');
+  const navItems = document.querySelectorAll('.fontaine-header .nav-item');
   
   // Add click event for mobile devices
   if (window.innerWidth <= 1000) {
