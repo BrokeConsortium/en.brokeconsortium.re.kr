@@ -247,7 +247,7 @@ tr:hover {
 }
 
 .watermark::after {
-  content: "Fontaine Academy";
+  content: "B Consortium";
   position: fixed;
   bottom: 20px;
   right: 20px;
