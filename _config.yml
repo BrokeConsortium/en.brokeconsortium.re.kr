@@ -30,6 +30,11 @@ language: "en"
 include_cache:
   enabled: true
 
+collections:
+  pages:
+    output: true
+    permalink: /:path/
+
 typogrify:
   enable: true
   smart_quotes: true
