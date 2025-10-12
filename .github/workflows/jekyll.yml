@@ -34,7 +34,7 @@ jobs:
           source: ./
           destination: ./_site
       - name: Copy ~aitzaz folder to _site
-        run: cp -r "~aitzaz" "_site/~aitzaz"
+        run: cp -r "./~aitzaz" "./_site/~aitzaz"
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
 
