@@ -1,5 +1,5 @@
 # Welcome to the consortium!
-Broke Consortium of Mathematical Research, also known as _Provisions, Successors, Research, and the Member of Broke Consortium_, informally
+Broke Consortium of Mathematical Research, known as _Provisions, Successors, Research, and the Member of Broke Consortium_, informally
 coined as B Consortium was founded by [Aitzaz Imtiaz](https://en.brokeconsortium.re.kr/member/~Aitzaz). As such, the consortium is a pioneering mechanism
 for development of Open Access research with documentation for expository writing. Under such conventions, the consortium operates in korean space and henceforth
 affiliates itself as South Korean organization. With the combination of methodologies, the products by consortium and research thereof derived is intended to bring
